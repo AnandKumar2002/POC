@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -23,6 +24,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
  */
 Route::middleware('auth')->group(function() {
     Route::view('/dashboard', 'dashboard')->name('dashboard');
+
+    Route::resource('pages', PageController::class);
 });
 
 
