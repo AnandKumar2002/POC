@@ -36,6 +36,11 @@
                 container: '#gjs',
                 height: '600px',
                 storageManager: false,
+                parser: {
+                    optionsHtml: {
+                        allowScripts: true,
+                    },
+                },
                 plugins: [
                     'grapesjs-blocks-bootstrap4',
                     'grapesjs-tailwind',
@@ -55,6 +60,7 @@
 
             const existingHtmlContent = {!! json_encode($page->html) !!};
             editor.setComponents(existingHtmlContent);
+            console.log(existingHtmlContent)
 
             // Trigger form submission only after applying HTML
             document.querySelector('#submit-btn').addEventListener('click', function() {

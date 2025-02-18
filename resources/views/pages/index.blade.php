@@ -31,6 +31,7 @@
         $('#pages-table').DataTable({
             processing: true,
             serverSide: true,
+            stateSave: true,
             ajax: '{{ route('pages.index') }}',
             columns: [
                 { data: 'id', name: 'id' },

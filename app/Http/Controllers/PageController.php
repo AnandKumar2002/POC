@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
@@ -19,7 +20,7 @@ class PageController extends Controller
             return DataTables::of($query)
                 ->addColumn('action', function ($row) {
                     return '<a href="' . route('pages.edit', $row->id) . '" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                            <a href="' . route('pages.show', $row->id) . '" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
+                            <a href="' . route('pages.show', $row->id) . '" class="btn btn-sm btn-success" target="_blank"><i class="fas fa-eye"></i></a>
                             <form action="' . route('pages.destroy', $row->id) . '" method="POST" style="display:inline;">
                                 ' . csrf_field() . method_field('DELETE') . '
                                 <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
@@ -54,14 +55,14 @@ class PageController extends Controller
         ]);
 
         // Create a new page using mass assignment
-        Page::create([
+        $page = Page::create([
             'title' => $request->title,
             'slug' => $request->slug,
             'html' => $request->html,
         ]);
 
         // Redirect or return success message
-        return redirect()->route('pages.index')->with('success', 'Page created successfully!');
+        return redirect()->route('pages.edit', $page->id)->with('success', 'Page created successfully!');
     }
 
     /**
@@ -69,6 +70,7 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
+        Debugbar::info($page);
         return view('pages.show', compact('page'));
     }
 
