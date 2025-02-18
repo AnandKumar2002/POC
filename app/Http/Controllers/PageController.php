@@ -18,13 +18,14 @@ class PageController extends Controller
             $query = Page::query();
             return DataTables::of($query)
                 ->addColumn('action', function ($row) {
-                    return '<a href="' . route('pages.edit', $row->id) . '" class="btn btn-sm btn-primary">Edit</a>
+                    return '<a href="' . route('pages.edit', $row->id) . '" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                            <a href="' . route('pages.show', $row->id) . '" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
                             <form action="' . route('pages.destroy', $row->id) . '" method="POST" style="display:inline;">
                                 ' . csrf_field() . method_field('DELETE') . '
-                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                             </form>';
                 })
-                ->rawColumns(['action', 'html'])
+                ->rawColumns(['action'])
                 ->make(true);
         }
 
@@ -37,6 +38,7 @@ class PageController extends Controller
     public function create()
     {
         //
+        return view('pages.create');
     }
 
     /**
@@ -67,7 +69,7 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
-        //
+        return view('pages.show', compact('page'));
     }
 
     /**
@@ -75,7 +77,8 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        //
+        // dd($page->html);
+        return view('pages.edit', compact('page'));
     }
 
     /**

@@ -15,7 +15,7 @@
                     <th>ID</th>
                     <th>Title</th>
                     <th>Slug</th>
-                    <th>HTML</th>
+                    {{-- <th>HTML</th> --}}
                     <th>Action</th>
                 </tr>
             </thead>
@@ -36,7 +36,7 @@
                 { data: 'id', name: 'id' },
                 { data: 'title', name: 'title' },
                 { data: 'slug', name: 'slug' },
-                { data: 'html', name: 'html' },
+                // { data: 'html', name: 'html' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ]
         });

@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        // User::factory()->create([
-        //     'name' => 'Admin User',
-        //     'email' => 'admin@netgen.in',
-        // ]);
+        User::factory()->create([
+            'name' => 'Admin User',
+            'email' => 'admin@netgen.in',
+        ]);
 
         Page::factory(10)->create();
     }
