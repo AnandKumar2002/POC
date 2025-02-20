@@ -55,14 +55,14 @@ class PageController extends Controller
         ]);
 
         // Create a new page using mass assignment
-        $page = Page::create([
+        Page::create([
             'title' => $request->title,
             'slug' => $request->slug,
             'html' => $request->html,
         ]);
 
         // Redirect or return success message
-        return redirect()->route('pages.edit', $page->id)->with('success', 'Page created successfully!');
+        return redirect()->route('pages.index')->with('success', 'Page created successfully!');
     }
 
     /**

@@ -33,6 +33,20 @@
                 container: '#gjs',
                 height: '600px',
                 storageManager: false,
+                showOffsets: true,
+                fromElement: true,
+                parser: {
+                    optionsHtml: {
+                        allowScripts: true,
+                    },
+                },
+                canvas: {
+                    styles: [
+                        'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css',
+                        'https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css',
+                        'https://use.fontawesome.com/releases/v6.7.2/css/all.css',
+                    ]
+                },
                 plugins: [
                     'grapesjs-blocks-bootstrap4',
                     'grapesjs-tailwind',
@@ -40,9 +54,26 @@
                     'grapesjs-preset-webpage',
                     'grapesjs-custom-code',
                     'grapesjs-navbar',
-                    'grapesjs-blocks-flexbox'
+                    'grapesjs-blocks-flexbox',
+                    'grapesjs-component-countdown',
+                    'grapesjs-component-code-editor',
+                    'grapesjs-script-editor',
                 ],
             });
+
+            const pn = editor.Panels;
+            const panelViews = pn.addPanel({
+                id: "views"
+            });
+            panelViews.get("buttons").add([{
+                attributes: {
+                    title: "Open Code"
+                },
+                className: "fa fa-file-code-o",
+                command: "open-code",
+                togglable: false,
+                id: "open-code"
+            }]);
 
             // Trigger form submission only after applying HTML
             document.querySelector('#submit-btn').addEventListener('click', function() {
