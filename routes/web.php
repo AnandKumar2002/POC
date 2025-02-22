@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use LivewireFilemanager\Filemanager\Http\Controllers\Files\FileController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('{path}', [FileController::class, 'show'])->where('path', '.*')->name('assets.show');
