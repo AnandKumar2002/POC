@@ -41,7 +41,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
             'report' => false,
@@ -60,6 +60,18 @@ return [
             'report' => false,
         ],
 
+        'sftp' => [
+            'driver' => 'sftp',
+            'host' => env('SFTP_HOST', 'catalog.scansource.com'),
+            'username' => env('SFTP_USERNAME', 'azpsab2bintcus02.1000017947.1000017947'),
+            'password' => env('SFTP_PASSWORD', 'ex3M+i6o66DPhOV7PZzh2qkjK9NBJ98S'),
+            'port' => (int) env('SFTP_PORT', 22),
+            'root' => env('SFTP_ROOT', '/'),
+            'timeout' => 30,
+            'option' => [
+                'debug' => true,
+            ]
+        ],
     ],
 
     /*
