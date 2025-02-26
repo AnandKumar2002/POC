@@ -55,27 +55,37 @@ class User extends Authenticatable
     {
         return Str::of($this->name)
             ->explode(' ')
-            ->map(fn (string $name) => Str::of($name)->substr(0, 1))
+            ->map(fn(string $name) => Str::of($name)->substr(0, 1))
             ->implode('');
     }
 
-    public function role() {
+    public function role()
+    {
         return $this->belongsTo(Role::class);
     }
 
-    public function posts() {
+    public function posts()
+    {
         return $this->hasMany(Post::class);
     }
 
-    public function comments() {
+    public function comments()
+    {
         return $this->hasMany(Comment::class);
     }
 
-    public function views() {
+    public function views()
+    {
         return $this->hasMany(View::class);
     }
 
-    public function subscriptions() {
+    public function subscriptions()
+    {
         return $this->hasMany(Subscription::class);
+    }
+
+    public function media()
+    {
+        return $this->hasMany(Media::class);
     }
 }

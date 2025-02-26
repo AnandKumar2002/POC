@@ -10,8 +10,9 @@ class Post extends Model
 {
     use HasFactory;
     protected $fillable = ['title', 'slug', 'content', 'status', 'user_id', 'category_id', 'published_at'];
-    
-    protected static function boot() {
+
+    protected static function boot()
+    {
         parent::boot();
 
         static::creating(function ($post) {
@@ -19,23 +20,33 @@ class Post extends Model
         });
     }
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
 
-    public function tags() {
+    public function tags()
+    {
         return $this->belongsToMany(Tag::class);
     }
 
-    public function comments() {
+    public function comments()
+    {
         return $this->hasMany(Comment::class);
     }
 
-    public function views() {
+    public function views()
+    {
         return $this->hasMany(View::class);
+    }
+
+    public function media()
+    {
+        return $this->hasMany(Media::class);
     }
 }
