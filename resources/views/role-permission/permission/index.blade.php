@@ -1,0 +1,50 @@
+<x-app-layout>
+    <x-slot name="header">
+        <div class="flex justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Permissions') }}
+            </h2>
+            <a href="{{ route('permission.create') }}">Create</a>
+        </div>
+    </x-slot>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                    <table class="w-full border border-gray-200 rounded-lg">
+                        <thead class="bg-gray-100 text-gray-600 uppercase text-sm">
+                            <tr>
+                                <th class="py-3 px-4 text-left border-b">ID</th>
+                                <th class="py-3 px-4 text-left border-b">Name</th>
+                                <th class="py-3 px-4 text-center border-b">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            @foreach ($permissions as $permission)
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-4 border-b">{{ $permission->id }}</td>
+                                    <td class="py-3 px-4 border-b">{{ $permission->name }}</td>
+                                    <td class="py-3 px-4 border-b text-center flex justify-center space-x-5">
+                                        <a href="{{ route('permission.edit', $permission->id) }}"
+                                            class="text-green-500 hover:underline"><i
+                                                class="fa-solid fa-pencil"></i></a>
+
+                                        <form action="{{ route('permission.destroy', $permission->id) }}"
+                                            method="POST">
+                                            @csrf @method('DELETE')
+                                            <button type="submit" class="text-red-500">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</x-app-layout>
