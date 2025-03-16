@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ItemController;
 use App\Services\ImageProcessingService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -9,6 +10,8 @@ use Intervention\Image\ImageManager;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('item', ItemController::class);
 
 Route::post('/', function (Request $request) {
     $file = $request->image;
