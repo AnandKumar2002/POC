@@ -123,4 +123,8 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'payu_key' => env('PAYU_KEY', 'UUG5xI'),
+    'payu_salt' => env('PAYU_SALT', 'YQ7F4Ik4QIvRmOBY0A4lHM3J8T9P3rBA'),
+    'base_url' => env('PAYU_BASE_URL', 'https://test.payu.in'),
+    'verify_url' => env('PAYU_VERIFY_URL', 'https://test.payu.in/merchant/postservice.php?form=2'),
 ];
