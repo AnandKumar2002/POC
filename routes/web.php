@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ItemsImportController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -10,6 +11,8 @@ Route::get('/', function () {
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+
+Route::post('/item-import', [ItemsImportController::class, 'itemImportPost'])->name('item-import-post');
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
