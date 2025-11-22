@@ -18,7 +18,7 @@
         <!-- Register Form -->
         <form action="{{ route('register') }}" method="POST" autocomplete="off">
             @csrf
-            <div class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                 <!-- Full Name with icon -->
                 <flux:input type="text" label="Full Name" name="name" :value="old('name')" required
@@ -45,9 +45,12 @@
                     maxlength="20" placeholder="Confirm your password" icon="key" />
 
                 <!-- Submit Button -->
-                <flux:button type="submit" variant="primary" class="w-full cursor-pointer" icon:trailing="user-plus">
-                    Register
-                </flux:button>
+                <div class="col-span-1 md:col-span-2">
+                    <flux:button type="submit" variant="primary" class="w-full cursor-pointer"
+                        icon:trailing="user-plus">
+                        Register
+                    </flux:button>
+                </div>
 
             </div>
         </form>

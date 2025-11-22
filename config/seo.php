@@ -7,4 +7,5 @@ return [
     'robots' => 'index, follow',
     'ogImage' => '/images/og-default.png',
     'twitterHandle' => 'yourtwitter',
+    'cache_time' => env('SEO_CACHE_TIME', 86400),
 ];
