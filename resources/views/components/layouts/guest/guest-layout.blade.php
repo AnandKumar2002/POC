@@ -20,7 +20,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="min-h-screen bg-white dark:bg-zinc-800">
+<body class="min-h-screen bg-white dark:bg-gray-800">
     <flux:main class="flex items-center justify-center">
         {{ $slot }}
     </flux:main>

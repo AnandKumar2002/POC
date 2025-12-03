@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\Auth\ImpersonationController;
 use App\Http\Controllers\Web\Auth\PasswordController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Auth\LoginController;
@@ -22,6 +23,7 @@ Route::middleware('guest')->group(function () {
 
     Route::get('reset-password/{token}', [PasswordController::class, 'showResetForm'])->name('password.reset');
     Route::post('reset-password', [PasswordController::class, 'resetPassword'])->name('password.store');
+
 });
 
 // Routes for authenticated users
@@ -29,6 +31,10 @@ Route::middleware('auth')->group(function () {
 
     // Update Password
     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
+
+    // Impersonate
+    Route::get('/impersonate/{user}', [ImpersonationController::class, 'startImpersonation'])->name('impersonate.start')->whereNumber('user');
+    Route::get('/impersonate/stop', [ImpersonationController::class, 'stopImpersonation'])->name('impersonate.stop');
 
     // Logout
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');

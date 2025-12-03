@@ -1,5 +1,5 @@
 <x-layouts.guest.guest-layout>
-    <div class="border border-zinc-800 dark:border-white p-6 min-w-[30vw] rounded-2xl">
+    <div class="border border-gray-800 dark:border-white p-6 min-w-[30vw] rounded-2xl">
 
         <!-- Header -->
         <div class="flex items-center mb-6">

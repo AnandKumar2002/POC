@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -24,11 +25,27 @@ class UserSeeder extends Seeder
                 ['email' => $email],
                 [
                     'name' => ucfirst($roleName) . ' User',
-                    'password' => bcrypt('password'),
+                    'password' => Hash::make('password'),
                 ]
             );
 
             $user->syncRoles([$roleName]);
+        }
+
+        $baseEmail = 'testuser';
+        $password = Hash::make('password');
+
+        for ($i = 1; $i <= 20; $i++) {
+            $email = $baseEmail . $i . '@example.com';
+
+            User::updateOrCreate(
+                ['email' => $email],
+                [
+                    'name' => 'Test User ' . $i,
+                    'password' => $password,
+                    'email_verified_at' => now(),
+                ]
+            );
         }
 
         // If you want single user add!

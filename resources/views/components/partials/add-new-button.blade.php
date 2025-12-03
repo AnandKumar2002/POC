@@ -1,0 +1,1 @@
+<flux:button href="{{ $href }}" variant="primary">{{ $title ?? 'Add New' }}</flux:button>
