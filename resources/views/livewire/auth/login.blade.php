@@ -20,7 +20,7 @@
                     </svg>
 
                     <span class="text-xl font-semibold text-zinc-800 dark:text-white">
-                        Logo
+                        {{ config('app.name') }}
                     </span>
                 </a>
             </div>

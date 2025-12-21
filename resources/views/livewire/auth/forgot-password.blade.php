@@ -8,15 +8,20 @@
             <div class="flex justify-center opacity-50">
                 <a href="/" wire:navigate class="group flex items-center gap-3">
                     <svg class="h-4 text-zinc-800 dark:text-white" viewBox="0 0 18 13" fill="none">
-                        <line x1="1" y1="5" x2="1" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                        <line x1="5" y1="1" x2="5" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                        <line x1="9" y1="5" x2="9" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                        <line x1="13" y1="1" x2="13" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                        <line x1="17" y1="5" x2="17" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        <line x1="1" y1="5" x2="1" y2="10" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                        <line x1="5" y1="1" x2="5" y2="8" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                        <line x1="9" y1="5" x2="9" y2="10" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                        <line x1="13" y1="1" x2="13" y2="12" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                        <line x1="17" y1="5" x2="17" y2="10" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
                     </svg>
 
                     <span class="text-xl font-semibold text-zinc-800 dark:text-white">
-                        Logo
+                        {{ config('app.name') }}
                     </span>
                 </a>
             </div>
@@ -32,21 +37,11 @@
             {{-- FORM --}}
             <form wire:submit.prevent="sendResetLink" class="flex flex-col gap-6">
 
-                <flux:input
-                    label="Email"
-                    type="email"
-                    placeholder="email@example.com"
-                    icon="envelope"
-                    wire:model.defer="email"
-                />
+                <flux:input label="Email" type="email" placeholder="email@example.com" icon="envelope"
+                    wire:model.defer="email" />
 
-                <flux:button
-                    variant="primary"
-                    class="w-full cursor-pointer"
-                    type="submit"
-                    icon:trailing="arrow-right"
-                    wire:loading.attr="disabled"
-                >
+                <flux:button variant="primary" class="w-full cursor-pointer" type="submit" icon:trailing="arrow-right"
+                    wire:loading.attr="disabled">
                     <span wire:loading.remove>Send reset link</span>
                     <span wire:loading>Sending…</span>
                 </flux:button>

@@ -20,7 +20,9 @@
                             stroke-linecap="round" />
                     </svg>
 
-                    <span class="text-xl font-semibold text-zinc-800 dark:text-white">Logo</span>
+                    <span class="text-xl font-semibold text-zinc-800 dark:text-white">
+                        {{ config('app.name') }}
+                    </span>
                 </a>
             </div>
 
