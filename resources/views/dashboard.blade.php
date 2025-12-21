@@ -1,12 +1,3 @@
-{{-- <x-layouts.admin.admin-layout title="Admin Dashboard" description="Manage your platform efficiently"
-    keywords="admin,dashboard,analytics" ogImage="https://picsum.photos/id/237/200/300">
-    <div>
-        I am admin content goes here.
-    </div>
-
-
-</x-layouts.admin.admin-layout> --}}
-
 <x-layouts.auth.auth-layout>
     <x-slot:header>
         {{-- <x-layouts.auth.header-primary :title="'Tournament'" :titleHref="'game'" :actions="[
@@ -32,19 +23,6 @@
     ]" />
     </x-slot:header>
     <div class="">
-        Welcome to the Main Game Lobby.
-
-        <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, totam laborum vel esse aspernatur earum qui dolor quis tempora, distinctio error fugit reiciendis cupiditate expedita obcaecati labore corrupti nulla cum!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, totam laborum vel esse aspernatur earum qui dolor quis tempora, distinctio error fugit reiciendis cupiditate expedita obcaecati labore corrupti nulla cum!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, totam laborum vel esse aspernatur earum qui dolor quis tempora, distinctio error fugit reiciendis cupiditate expedita obcaecati labore corrupti nulla cum!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, totam laborum vel esse aspernatur earum qui dolor quis tempora, distinctio error fugit reiciendis cupiditate expedita obcaecati labore corrupti nulla cum!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, totam laborum vel esse aspernatur earum qui dolor quis tempora, distinctio error fugit reiciendis cupiditate expedita obcaecati labore corrupti nulla cum!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, totam laborum vel esse aspernatur earum qui dolor quis tempora, distinctio error fugit reiciendis cupiditate expedita obcaecati labore corrupti nulla cum!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, totam laborum vel esse aspernatur earum qui dolor quis tempora, distinctio error fugit reiciendis cupiditate expedita obcaecati labore corrupti nulla cum!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, totam laborum vel esse aspernatur earum qui dolor quis tempora, distinctio error fugit reiciendis cupiditate expedita obcaecati labore corrupti nulla cum!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, totam laborum vel esse aspernatur earum qui dolor quis tempora, distinctio error fugit reiciendis cupiditate expedita obcaecati labore corrupti nulla cum!
-
-        </div>
+        Welcome to auth dashboard.
     </div>
 </x-layouts.auth.auth-layout>

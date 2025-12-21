@@ -35,12 +35,12 @@
     <x-layouts.admin.header />
 
     {{-- Main content --}}
-    <main role="main" class="flex-1 overflow-y-auto">
-        <div class="p-4 md:max-w-5xl md:mx-auto">
+    <flux:main role="main" class="flex-1 overflow-y-auto">
+        <div>
             <x-partials.greeting />
             {{ $slot }}
         </div>
-    </main>
+    </flux:main>
 
     @fluxScripts
 

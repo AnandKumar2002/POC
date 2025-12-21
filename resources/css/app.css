@@ -36,3 +36,7 @@
         --color-accent-foreground: var(--color-white);
     }
 }
+
+[data-flux-label] {
+    @apply mb-1;
+}

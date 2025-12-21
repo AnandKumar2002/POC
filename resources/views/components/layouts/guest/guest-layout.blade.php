@@ -30,9 +30,9 @@
 <body class="min-h-screen bg-white dark:bg-gray-800 antialiased">
 
     <div class="min-h-screen flex flex-col">
-        <flux:main class="flex-1">
+        <main class="flex-1">
             {{ $slot }}
-        </flux:main>
+        </main>
     </div>
 
     @fluxScripts

@@ -11,9 +11,9 @@
         <flux:menu>
             <flux:menu.item href="#" wire:navigate icon="user">{{ auth()?->user()?->name ?? 'Guest' }}</flux:menu.item>
             <flux:menu.separator />
-            <form method="POST" action="#">
+            <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <flux:button type="submit" icon="arrow-right-start-on-rectangle" class="w-full"> Logout </flux:button>
+                <flux:button type="submit" variant="danger" icon="arrow-right-start-on-rectangle" class="w-full cursor-pointer"> Logout </flux:button>
             </form>
         </flux:menu>
     </flux:dropdown>
