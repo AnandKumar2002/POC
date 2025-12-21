@@ -30,6 +30,11 @@ class Login extends Component
 
         session()->flash('success', 'Welcome back');
 
+        $user = Auth::user();
+        if ($user->hasAnyRole(['super-admin', 'admin'])) {
+            return redirect()->intended('/admin-dashboard');
+        }
+
         return redirect()->intended('/dashboard');
     }
 

@@ -40,6 +40,11 @@ class Register extends Component
         session()->regenerate();
 
         session()->flash('success', 'Account created successfully');
+        
+        $user = Auth::user();
+        if ($user->hasAnyRole(['super-admin', 'admin'])) {
+            return redirect()->intended('/admin-dashboard');
+        }
 
         return redirect()->intended('/dashboard');
     }

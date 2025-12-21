@@ -8,7 +8,10 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::view('/dashboard', 'dashboard')->name('dashboard');
-    Route::view('/admin-dashboard', 'admin-dashboard')->name('admin.dashboard');
+
+    Route::middleware(['role:admin|super-admin'])->group(function () {
+        Route::view('/admin-dashboard', 'admin-dashboard')->name('admin.dashboard');
+    });
 });
 
 
